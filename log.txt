@@ -1,0 +1,79 @@
+Already up-to-date.
+Sending build context to Docker daemon 66.05 kB
+Step 1 : FROM ubuntu:latest
+ ---> f8d79ba03c00
+Step 2 : MAINTAINER Matthew Ramsey "matthew.ramsey@live.com"
+ ---> Using cache
+ ---> 585641ad2729
+Step 3 : RUN apt-get update -y
+ ---> Using cache
+ ---> 0a96eabc9c40
+Step 4 : RUN apt-get install -y python-pip python-dev build-essential
+ ---> Using cache
+ ---> 4c7e741f43cf
+Step 5 : COPY . /app
+ ---> 157198522402
+Removing intermediate container 42269aca117a
+Step 6 : WORKDIR /app
+ ---> Running in 1d2a05d0eaec
+ ---> d05439315f3f
+Removing intermediate container 1d2a05d0eaec
+Step 7 : RUN pip install -r requirements.txt
+ ---> Running in 752e82ac3650
+Collecting Flask==0.10.1 (from -r requirements.txt (line 1))
+  Downloading Flask-0.10.1.tar.gz (544kB)
+Collecting Werkzeug>=0.7 (from Flask==0.10.1->-r requirements.txt (line 1))
+  Downloading Werkzeug-0.11.10-py2.py3-none-any.whl (306kB)
+Collecting Jinja2>=2.4 (from Flask==0.10.1->-r requirements.txt (line 1))
+  Downloading Jinja2-2.8-py2.py3-none-any.whl (263kB)
+Collecting itsdangerous>=0.21 (from Flask==0.10.1->-r requirements.txt (line 1))
+  Downloading itsdangerous-0.24.tar.gz (46kB)
+Collecting MarkupSafe (from Jinja2>=2.4->Flask==0.10.1->-r requirements.txt (line 1))
+  Downloading MarkupSafe-0.23.tar.gz
+Building wheels for collected packages: Flask, itsdangerous, MarkupSafe
+  Running setup.py bdist_wheel for Flask: started
+  Running setup.py bdist_wheel for Flask: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/b6/09/65/5fcf16f74f334a215447c26769e291c41883862fe0dc7c1430
+  Running setup.py bdist_wheel for itsdangerous: started
+  Running setup.py bdist_wheel for itsdangerous: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/fc/a8/66/24d655233c757e178d45dea2de22a04c6d92766abfb741129a
+  Running setup.py bdist_wheel for MarkupSafe: started
+  Running setup.py bdist_wheel for MarkupSafe: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/a3/fa/dc/0198eed9ad95489b8a4f45d14dd5d2aee3f8984e46862c5748
+Successfully built Flask itsdangerous MarkupSafe
+Installing collected packages: Werkzeug, MarkupSafe, Jinja2, itsdangerous, Flask
+Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.10 itsdangerous-0.24
+[91mYou are using pip version 8.1.1, however version 8.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+[0m ---> e8e9b0550826
+Removing intermediate container 752e82ac3650
+Step 8 : ENTRYPOINT python
+ ---> Running in 62b7dd61ecfc
+ ---> c0715eab4a39
+Removing intermediate container 62b7dd61ecfc
+Step 9 : CMD app/app.py
+ ---> Running in 0b2cbbbd7db2
+ ---> 67197c9ea8e2
+Removing intermediate container 0b2cbbbd7db2
+Successfully built 67197c9ea8e2
+The push refers to a repository [docker.io/beakerman29/simpleflask]
+e2ecd0189f7e: Preparing
+2e18db4272fa: Preparing
+bf5783a103a6: Preparing
+2c3e3f1bf19f: Preparing
+4699cbd1a947: Preparing
+2bed5b3ec49f: Preparing
+3834bde7e567: Preparing
+d8d865b23727: Preparing
+2bed5b3ec49f: Waiting
+3834bde7e567: Waiting
+d8d865b23727: Waiting
+bf5783a103a6: Layer already exists
+2c3e3f1bf19f: Layer already exists
+4699cbd1a947: Layer already exists
+2bed5b3ec49f: Layer already exists
+3834bde7e567: Layer already exists
+d8d865b23727: Layer already exists
+2e18db4272fa: Pushed
+e2ecd0189f7e: Pushed
+latest: digest: sha256:c4792a1a3da40528efa2f237e250e21720970eb7a6ca533d80e36f9d36c5b29c size: 1994
