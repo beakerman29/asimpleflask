@@ -1,3 +1,4 @@
+#/bin/bash
 #build a simple flask application and push it to dockerhub
 
 repodir=$1
